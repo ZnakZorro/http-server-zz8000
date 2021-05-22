@@ -1,5 +1,6 @@
 
 const https = require('https');
+var http = require('http');
 
 let url ='https://www.yr.no/api/v0/locations/2-3083828/forecast'; // Dąbie
 //let url ='https://www.yr.no/api/v0/locations/5-1220500/forecast'; // Szczecin 
@@ -22,29 +23,33 @@ const parsowanie=(body)=>{
 
 }
 
-https.get(url,(res) => {
-    let body = "";
-    res.on("data", (chunk) => {
-        body += chunk;
+let getYRNO=(url)=>{
+    https.get(url,(res) => {
+        let body = "";
+        res.on("data", (chunk) => {
+            body += chunk;
+        });
+        res.on("end", () => {
+            try {
+                let json = JSON.parse(body);
+                //console.log(json);
+                parsowanie(json);
+            } catch (error) {
+                console.error(error.message);
+            };
+        });
+    }).on("error", (error) => {
+        console.error(error.message);
     });
-    res.on("end", () => {
-        try {
-            let json = JSON.parse(body);
-            //console.log(json);
-            parsowanie(json);
-        } catch (error) {
-            console.error(error.message);
-        };
-    });
-}).on("error", (error) => {
-    console.error(error.message);
-});
+}
+
+getYRNO(url);
 
 
 
 
 
-var http = require('http');
+
 
 http
   .createServer(function(req, res) {
