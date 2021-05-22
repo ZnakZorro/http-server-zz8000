@@ -8,6 +8,6 @@
 	"scripts": {
 		"dev": "nodemon server.js",
 		"start": "node server.js",
-    "first": "npx nodemon server.js"
+		"first": "npx nodemon server.js"
 	}
 }
