@@ -1,6 +1,6 @@
-var http = require('http');
+var https = require('https');
 
-http
+https
   .createServer(function(req, res) {
     res.write('Hello, Node.js!'); //write a response to the client
     res.end(); //end the response
