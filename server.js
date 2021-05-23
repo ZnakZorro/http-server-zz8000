@@ -11,6 +11,7 @@ const parsowanie=(body)=>{
 			//console.log(o);
 		}
     console.log("------------------------------");
+    let html = "";
 		for (var o in body.longIntervals){
       let day = body.longIntervals[o];
 			//console.log(o,day);
@@ -18,8 +19,10 @@ const parsowanie=(body)=>{
       let czas = (new Date(day.start)).toLocaleString('pl-PL');
       let deszcz = Math.max(day.precipitation.value,day.precipitation.min,day.precipitation.max);
       console.log(czas,"T=",day.temperature.value,"FL=",day.feelsLike.value,"  D="+deszcz+" mm");
+      html += '<p>T='+day.temperature.value+' F='+day.feelsLike.value+' D='+deszcz+' mm'</p>';
       
 		}
+    serverStart(html);
 
 }
 
@@ -44,11 +47,11 @@ let getYRNO=(url)=>{
 }
 
 
-let serverStart=()=>{
+let serverStart=(html)=>{
   http
     .createServer(function(req, res) {
       let czas = (new Date()).toLocaleString();
-      res.write(czas+' <br />yrno Hello, Node.js!'); //write a response to the client
+      res.write(czas+html+' <br />yrno Hello, Node.js!'); //write a response to the client
       res.end(); //end the response
     })
     .listen(8088); //the server object listens on port 8080
@@ -58,4 +61,3 @@ let serverStart=()=>{
 
 
 getYRNO(url);
-serverStart()
