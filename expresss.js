@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
-
+const { exec } = require('child_process');
 
 // Parsers
 app.use(bodyParser.json());
@@ -19,19 +19,37 @@ app.use(express.static(path.join(__dirname, 'pages')));
 
 
 
-app.get('/radio0', (req, res) => {
-    console.log(0);
-    res.sendFile(path.join(__dirname, 'pages/index.html'));
-});
 app.get('/radio1/', (req, res) => {
     console.log(1);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
+
+    exec('mpc play 1', (err, stdout, stderr) => {
+      if (err) {return; }
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });    
 });
 app.get('/radio2/', (req, res) => {
     console.log(2);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
-});
 
+    exec('mpc play 2', (err, stdout, stderr) => {
+      if (err) {return; }
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });    
+});
+app.get('/radio3', (req, res) => {
+    console.log(3);
+    res.sendFile(path.join(__dirname, 'pages/index.html'));
+
+    exec('mpc play 3', (err, stdout, stderr) => {
+      if (err) {return; }
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });
+
+});
 
 
 
