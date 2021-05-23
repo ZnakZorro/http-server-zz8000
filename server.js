@@ -47,7 +47,8 @@ let getYRNO=(url)=>{
 let serverStart=()=>{
   http
     .createServer(function(req, res) {
-      res.write('yrno Hello, Node.js!'); //write a response to the client
+      let czas = (new Date()).toLocaleString();
+      res.write(czas+' <br />yrno Hello, Node.js!'); //write a response to the client
       res.end(); //end the response
     })
     .listen(8088); //the server object listens on port 8080
