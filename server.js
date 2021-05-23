@@ -59,6 +59,7 @@ let serverStart=(html="qwerty")=>{
 
   console.log('Server running on port 8088');
 }
-Console.log("+++++++++++++++++++++++++++++++");
+
+console.log("+++++++++++++++++++++++++++++++");
 serverStart();
 getYRNO(url);
