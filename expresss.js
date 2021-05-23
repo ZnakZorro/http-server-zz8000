@@ -24,7 +24,7 @@ app.get('/radio1/', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 1', (err, stdout, stderr) => {
-      if (err) {return; }
+      if (err) {onsole.log(err); return; }
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
     });    
@@ -34,7 +34,7 @@ app.get('/radio2/', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 2', (err, stdout, stderr) => {
-      if (err) {return; }
+      if (err) {onsole.log(err); return; }
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
     });    
@@ -44,7 +44,7 @@ app.get('/radio3', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 3', (err, stdout, stderr) => {
-      if (err) {return; }
+      if (err) {onsole.log(err); return; }
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
     });
