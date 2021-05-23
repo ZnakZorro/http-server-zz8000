@@ -12,6 +12,6 @@
 		"dev": "nodemon server.js",
 		"start": "node server.js",
 		"first": "npx nodemon server.js",
-    "server": "npx nodemon expresss.js"
+		"server": "npx nodemon expresss.js"
 	}
 }
