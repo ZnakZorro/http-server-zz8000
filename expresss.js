@@ -19,15 +19,15 @@ app.get('*', (req, res) => {
 
 
 
-app.get('radio0', (req, res) => {
+app.get('/radio0', (req, res) => {
     console.log(0);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 });
-app.get('radio1', (req, res) => {
+app.get('/radio1/', (req, res) => {
     console.log(1);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 });
-app.get('radio2', (req, res) => {
+app.get('/radio2/', (req, res) => {
     console.log(2);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 });
