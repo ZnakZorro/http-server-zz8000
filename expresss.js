@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
-const { exec } = require('child_process');
+const exec = require('child_process');
 
 // Parsers
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'pages')));
 
 
 app.get('/radio1/', (req, res) => {
-    console.log(1);
+    console.log(11);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 1', (err, stdout, stderr) => {
@@ -30,7 +30,7 @@ app.get('/radio1/', (req, res) => {
     });    
 });
 app.get('/radio2/', (req, res) => {
-    console.log(2);
+    console.log(22);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 2', (err, stdout, stderr) => {
@@ -40,7 +40,7 @@ app.get('/radio2/', (req, res) => {
     });    
 });
 app.get('/radio3', (req, res) => {
-    console.log(3);
+    console.log(33);
     res.sendFile(path.join(__dirname, 'pages/index.html'));
 
     exec('mpc play 3', (err, stdout, stderr) => {
