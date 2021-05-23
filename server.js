@@ -18,7 +18,7 @@ const parsowanie=(body)=>{
       
       let czas = (new Date(day.start)).toLocaleString('pl-PL');
       let deszcz = Math.max(day.precipitation.value,day.precipitation.min,day.precipitation.max);
-      /console.log(czas,"T=",day.temperature.value,"FL=",day.feelsLike.value,"  D="+deszcz+" mm");
+      //console.log(czas,"T=",day.temperature.value,"FL=",day.feelsLike.value,"  D="+deszcz+" mm");
       html += '<p>T='+day.temperature.value+' F='+day.feelsLike.value+' D='+deszcz+' mm</p>\n';
       
 		}
@@ -48,7 +48,7 @@ let getYRNO=(url)=>{
 }
 
 
-let serverStart=(html)=>{
+let serverStart=(html="qwerty")=>{
   http
     .createServer(function(req, res) {
       let czas = (new Date()).toLocaleString();
@@ -60,5 +60,5 @@ let serverStart=(html)=>{
   console.log('Server running on port 8088');
 }
 
-
+serverStart();
 getYRNO(url);
