@@ -52,6 +52,7 @@ let serverStart=(html="qwerty")=>{
   http
     .createServer(function(req, res) {
       let czas = (new Date()).toLocaleString();
+      console.log(czas);
         res.setHeader("Content-Type", "text/html");
         res.writeHead(200);
         res.end(html);
