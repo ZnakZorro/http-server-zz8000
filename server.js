@@ -52,7 +52,7 @@ let serverStart=(html="qwerty")=>{
   http
     .createServer(function(req, res) {
       let czas = (new Date()).toLocaleString();
-      console.log(czas);
+      console.log(1,czas);
         res.setHeader("Content-Type", "text/html");
         res.writeHead(200);
         res.end(html);
@@ -60,7 +60,8 @@ let serverStart=(html="qwerty")=>{
         //res.end(); //end the response
     })
     .listen(8088); //the server object listens on port 8080
-
+  let czas = (new Date()).toLocaleString();
+  console.log(0,czas);
   console.log('Server running on port 8088');
 }
 
