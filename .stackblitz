@@ -1,1 +1,4 @@
-turbo first
+{
+  "installDependencies": true,
+  "startCommand": "npx nodemon expresss.js"
+}
